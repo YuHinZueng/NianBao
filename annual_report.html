@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>上汽大众超级App 2025年度报告</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* 响应式容器 */
+        .phone-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: none;
+            border: none;
+        }
+        
+        /* 手机视图 */
+        @media (max-width: 768px) {
+            .phone-container {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+            }
+        }
+        
+        /* 平板和电脑视图 */
+        @media (min-width: 769px) {
+            .phone-container {
+                /* 在电脑上模拟手机外观，但更大更清晰 */
+                width: 750px;
+                height: 1334px;
+                border-radius: 80px;
+                box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+                border: 20px solid #333;
+            }
+        }
+
+        /* 滚动容器 */
+        .scroll-container {
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* 页面样式 */
+        .page {
+            height: 100%;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        /* 背景图片样式 */
+        .page-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* 内容容器 */
+        .content-container {
+            z-index: 1;
+            width: 100%;
+        }
+
+        /* 标题样式 */
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        /* 文本样式 */
+        .page-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        /* 数据卡片样式 */
+        .data-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0052a3;
+        }
+
+        /* 特定页面样式 */
+        /* Loading页 */
+        #loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-animation {
+            width: 100px;
+            height: 100px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 页脚样式 */
+        .page-footer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="scroll-container">
+            <!-- Loading页 -->
+            <div class="page" id="loading">
+                <img src="assets/1 loading-GIF.gif" alt="Loading页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 首页 -->
+            <div class="page" id="home">
+                <img src="assets/2 首页--GIF.gif" alt="首页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 车辆行驶页 -->
+            <div class="page" id="driving">
+                <img src="assets/3车辆行驶页--GIF.gif" alt="车辆行驶页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 智慧座舱页 -->
+            <div class="page" id="cabin">
+                <img src="assets/4 智慧座舱页.jpg" alt="智慧座舱页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 蓝牙钥匙页 -->
+            <div class="page" id="bluetooth-key">
+                <img src="assets/5 蓝牙钥匙页.jpg" alt="蓝牙钥匙页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 签到页 -->
+            <div class="page" id="check-in">
+                <img src="assets/6 签到页.jpg" alt="签到页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 社区内容页 -->
+            <div class="page" id="community">
+                <img src="assets/7 社区内容页.jpg" alt="社区内容页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- PLUS&Vday页 -->
+            <div class="page" id="plus-vday">
+                <img src="assets/8 PLUS&V-day页.jpg" alt="PLUS&V-day页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 商城页 -->
+            <div class="page" id="mall">
+                <img src="assets/9 商城页.jpg" alt="商城页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 结果页 -->
+            <div class="page" id="result">
+                <img src="assets/10 结果页.jpg" alt="结果页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- 海报页 -->
+            <div class="page" id="poster">
+                <img src="assets/11 海报.jpg" alt="海报页" class="page-bg" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载完成后自动隐藏loading页
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const scrollContainer = document.querySelector('.scroll-container');
+                scrollContainer.scrollTop = scrollContainer.offsetHeight;
+            }, 2000);
+        });
+
+        // 实现垂直滑动切换页面的效果
+        const scrollContainer = document.querySelector('.scroll-container');
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+
+        scrollContainer.addEventListener('scroll', function() {
+            const scrollPosition = scrollContainer.scrollTop;
+            const pageHeight = scrollContainer.offsetHeight;
+            currentPage = Math.round(scrollPosition / pageHeight);
+        });
+
+        // 触摸事件处理（移动端滑动）
+        let startY = 0;
+        let endY = 0;
+
+        scrollContainer.addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+        });
+
+        scrollContainer.addEventListener('touchend', function(e) {
+            endY = e.changedTouches[0].clientY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const threshold = 50;
+            if (startY - endY > threshold) {
+                // 向上滑动
+                currentPage = Math.min(currentPage + 1, pages.length - 1);
+            } else if (endY - startY > threshold) {
+                // 向下滑动
+                currentPage = Math.max(currentPage - 1, 0);
+            }
+            scrollContainer.scrollTop = currentPage * scrollContainer.offsetHeight;
+        }
+    </script>
+</body>
+</html>
